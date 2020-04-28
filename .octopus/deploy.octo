@@ -1,3 +1,11 @@
 schema_version = 1.0
 process {
+  inline_script_action "Hello World" {
+    run_on_server = true
+    syntax = "PowerShell"
+    body = <<SCRIPT
+      Write-Host "Hello World!"
+    SCRIPT
+    environments = []
+  }
 }
