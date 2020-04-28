@@ -8,13 +8,4 @@ process {
     SCRIPT
     environments = []
   }
-  inline_script_action "Just another script step" {
-    run_on_server = false
-    target_roles = ["instanceworker"]
-    syntax = "PowerShell"
-    body = <<SCRIPT
-      Write-Host "boo"
-    SCRIPT
-    environments = []
-  }
 }
