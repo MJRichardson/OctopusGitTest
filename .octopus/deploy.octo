@@ -16,4 +16,20 @@ process {
     SCRIPT
     environments = []
   }
+  action "Deploy Package" {
+    action_type = "Octopus.TentaclePackage"
+    target_roles = ["instanceworker"]
+    package {
+      feed = "feeds-builtin"
+      package_id = "hello-world"
+    }
+    properties {
+      "Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles" = "True"
+      "Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings" = "True"
+      "Octopus.Action.EnabledFeatures" = "Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
+      "Octopus.Action.Package.PackageId" = "hello-world"
+      "Octopus.Action.Package.FeedId" = "feeds-builtin"
+      "Octopus.Action.Package.DownloadOnTentacle" = "False"
+    }
+  }
 }
