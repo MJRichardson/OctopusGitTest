@@ -8,4 +8,12 @@ process {
     SCRIPT
     environments = []
   }
+  inline_script_action "Deploy New Feature" {
+    run_on_server = true
+    syntax = "PowerShell"
+    body = <<SCRIPT
+      Write-Host "This is my new feature"
+    SCRIPT
+    environments = []
+  }
 }
