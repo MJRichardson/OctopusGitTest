@@ -1,0 +1,11 @@
+schema_version = 1.0
+process {
+  inline_script_action "Echo Hello World" {
+    run_on_server = true
+    syntax = "Bash"
+    body = <<SCRIPT
+      echo "Hello World!"
+    SCRIPT
+    environments = []
+  }
+}
