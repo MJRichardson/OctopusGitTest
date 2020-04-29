@@ -1,5 +1,12 @@
 schema_version = 1.0
 process {
+action "Approval" {
+    action_type = "Octopus.Manual"
+    properties {
+      "Octopus.Action.Manual.BlockConcurrentDeployments" = "False"
+      "Octopus.Action.Manual.Instructions" = "Approve this release"
+      "Octopus.Action.Manual.ResponsibleTeamIds" = "teams-everyone"
+    }
   inline_script_action "Hello World" {
     run_on_server = true
     syntax = "PowerShell"
@@ -8,12 +15,5 @@ process {
     SCRIPT
     environments = []
   }
-  action "Approval" {
-    action_type = "Octopus.Manual"
-    properties {
-      "Octopus.Action.Manual.BlockConcurrentDeployments" = "False"
-      "Octopus.Action.Manual.Instructions" = "Approve this release"
-      "Octopus.Action.Manual.ResponsibleTeamIds" = "teams-everyone"
-    }
   }
 }
