@@ -8,4 +8,12 @@ process {
     SCRIPT
     environments = []
   }
+  action "Approval" {
+    action_type = "Octopus.Manual"
+    properties {
+      "Octopus.Action.Manual.BlockConcurrentDeployments" = "False"
+      "Octopus.Action.Manual.Instructions" = "Approve this release"
+      "Octopus.Action.Manual.ResponsibleTeamIds" = "teams-everyone"
+    }
+  }
 }
