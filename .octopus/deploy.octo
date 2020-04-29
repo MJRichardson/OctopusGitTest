@@ -1,6 +1,6 @@
 schema_version = 1.0
 process {
-action "Approval" {
+  action "Approval" {
     action_type = "Octopus.Manual"
     properties {
       "Octopus.Action.Manual.BlockConcurrentDeployments" = "False"
