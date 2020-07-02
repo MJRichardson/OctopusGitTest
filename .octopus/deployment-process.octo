@@ -1,0 +1,101 @@
+process {
+    Id = "deploymentprocess-Projects-221"
+    OwnerId = "Projects-221"
+    IsFrozen = false
+    Version = 1
+    SpaceId = "Spaces-1"
+    Steps {
+        hello_world {
+            Id = "c352c7aa-d14e-4bc2-8bb2-9f8887ee64b3"
+            Name = "Hello World"
+            Condition = "Success"
+            StartTrigger = "StartAfterPrevious"
+            PackageRequirement = "LetOctopusDecide"
+            Actions {
+                hello_world {
+                    Id = "926ccaf7-7bbb-49bf-8085-cb625f7e4960"
+                    Name = "Hello World"
+                    ActionType = "Octopus.Script"
+                    WorkerPoolIdOrName = "Default Worker Pool"
+                    Container {
+                    }
+                    IsDisabled = false
+                    IsRequired = false
+                    Environments = []
+                    ExcludedEnvironments = []
+                    Channels = []
+                    TenantTags = []
+                    Packages {
+                        item {
+                            Id = "d13c27d0-85ea-498e-838b-f6cbbbfd76dd"
+                            Name = ""
+                            PackageId = "MJRichardson/OctopusGitTest"
+                            FeedId = "Feeds-1081"
+                            AcquisitionLocation = "Server"
+                            Properties {
+                                selectionmode {
+                                    Key = "SelectionMode"
+                                    Value = "immediate"
+                                }
+                            }
+                        }
+                    }
+                    Condition = "Success"
+                    Properties {
+                        octopus.action.runonserver {
+                            Key = "Octopus.Action.RunOnServer"
+                            Value {
+                                Value = "true"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.script.scriptsource {
+                            Key = "Octopus.Action.Script.ScriptSource"
+                            Value {
+                                Value = "Package"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.script.scriptfilename {
+                            Key = "Octopus.Action.Script.ScriptFileName"
+                            Value {
+                                Value = "scripts/hello-world.sh"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.package.packageid {
+                            Key = "Octopus.Action.Package.PackageId"
+                            Value {
+                                Value = "MJRichardson/OctopusGitTest"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.package.feedid {
+                            Key = "Octopus.Action.Package.FeedId"
+                            Value {
+                                Value = "Feeds-1081"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                        octopus.action.package.downloadontentacle {
+                            Key = "Octopus.Action.Package.DownloadOnTentacle"
+                            Value {
+                                Value = "False"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
+                    }
+                }
+            }
+            Properties {
+            }
+        }
+    }
+    RelatedDocumentIds = ["Default Worker Pool"]
+}
