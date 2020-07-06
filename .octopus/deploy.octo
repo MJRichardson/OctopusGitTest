@@ -16,4 +16,13 @@ process {
     SCRIPT
     environments = []
   }
+  inline_script_action "Goodbye World" {
+    run_on_server = false
+    target_roles = ["instanceworker"]
+    syntax = "PowerShell"
+    body = <<SCRIPT
+      Write-Host Goodbye World
+    SCRIPT
+    environments = []
+  }
 }
